@@ -5,7 +5,12 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, View, ScrollView, Dimensions, ImageBackground, TouchableOpacity, Text } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+
 import { AClogo } from '../components/AClogo';
+import { Tankcatalizador } from '../components/Tankcatalizador';
+import { Tankreact } from '../components/Tankreact';
+import { Trompo } from '../components/Trompo';
 import { loginStyles } from '../theme/loginTheme';
 import { manageStyles } from '../theme/manageTheme';
 
@@ -19,34 +24,91 @@ const ProcessScreen = ({navigation}: Props) => {
     { key:'1', 
     action: 
       <>
-        
+        <Tankcatalizador/>
+        <View style={manageStyles.progressBar}>
+          <Text style={manageStyles.labelTank}>Tiempo: </Text>
+          <TextInput placeholder=" 00 : 00 : 00 "
+          placeholderTextColor="rgba(255,255,255,0.4)"
+          style={manageStyles.inputs}
+          selectionColor='white'
+
+          //TODO: onChange, value
+          autoCapitalize='none'
+          autoCorrect={false} />
+        </View>
+        <Text style={manageStyles.labelTank}>---------------------------------------</Text>
       </>
     },
 
     { key:'2', 
     action: 
       <>
-        
+        <Tankreact/>
+        <View style={manageStyles.progressBar}>
+          <Text style={manageStyles.labelTank}>Tiempo: </Text>
+          <TextInput placeholder=" 00 : 00 : 00 "
+          placeholderTextColor="rgba(255,255,255,0.4)"
+          style={manageStyles.inputs}
+          selectionColor='white'
+
+          //TODO: onChange, value
+          autoCapitalize='none'
+          autoCorrect={false} />
+        </View>
+        <Text style={manageStyles.labelTank}>---------------------------------------</Text>
       </>
     },
 
     { key:'3',
     action: 
       <>
-        
+        <Trompo/>
+        <View style={{
+          flex:1,
+          flexDirection: 'row',
+          alignSelf: 'center',
+          
+        }}>
+          <View style={manageStyles.progressBar}>
+            <Text style={manageStyles.labelTank}>Tiempo: </Text>
+            <TextInput placeholder=" 00 : 00 : 00 "
+            placeholderTextColor="rgba(255,255,255,0.4)"
+            style={manageStyles.inputs}
+            selectionColor='white'
+
+            //TODO: onChange, value
+            autoCapitalize='none'
+            autoCorrect={false} />
+          </View>
+          <View style={manageStyles.progressBar}>
+            <Text style={manageStyles.labelTank}>Velocidad: </Text>
+            <TextInput placeholder=" 00 rpm "
+            placeholderTextColor="rgba(255,255,255,0.4)"
+            style={manageStyles.inputs}
+            selectionColor='white'
+
+            //TODO: onChange, value
+            autoCapitalize='none'
+            autoCorrect={false} />
+          </View>
+        </View>
+        <Text style={manageStyles.labelTank}>---------------------------------------</Text>
       </>
     },
 
     { key:'4',
     action: 
       <>
-        
-      </>
-    },
-
-    { key:'5',
-    action: 
-      <>
+        <View style={loginStyles.buttonContainer}>
+          <TouchableOpacity
+          activeOpacity={0.8}
+          onPress = {() => navigation.replace('ProcessScreen')}
+          >
+              <View style = {manageStyles.fab}>
+                <Text style = {manageStyles.fabText} >Iniciar</Text>
+              </View>
+          </TouchableOpacity>
+        </View>
         <View style={loginStyles.buttonContainer}>
           <TouchableOpacity
           activeOpacity={0.8}
